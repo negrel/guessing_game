@@ -48,23 +48,24 @@ fn main() {
 	// Parse to interger.
 	max_attempt = parse_to_u32(&mut reader);
 	
+	// Ask user guess while attempt counter is lower than max attempt.
 	while attempt < max_attempt {
 
-		// Prompt user to enter a number
+		// Prompt user to enter a number.
 		println!("Please input your guess.");
 
-		// Read the user input
+		// Read the user input.
 		io::stdin().read_line(&mut reader)
 			.expect("Failed to read line.");
 		guess = parse_to_u32(&mut reader);
 		
-		// Check the user input	
+		// Check the user input.
 		match guess.cmp(&res) {
-			// The user input is smaller than the mystery number
+			// The user input is smaller than the mystery number.
 			Ordering::Less => println!("Too small!"),
-			// The user input is greater than the mystery number
+			// The user input is greater than the mystery number.
 			Ordering::Greater => println!("Too big!"),
-			// The user input is equal to the mystery number
+			// The user input is equal to the mystery number.
 			Ordering::Equal => {
 				println!("You win!");
 				exit(0);
@@ -75,6 +76,7 @@ fn main() {
 		attempt += 1;
 	}
 
+	// attempt counter is greater than max attempt.
 	println!("You loose...");
 	exit(0);
 }
