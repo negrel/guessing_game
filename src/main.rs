@@ -67,16 +67,17 @@ fn main() {
 			Ordering::Greater => println!("Too big!"),
 			// The user input is equal to the mystery number.
 			Ordering::Equal => {
+				// Print win msg and exit.
 				println!("You win!");
 				exit(0);
-				break;
 			}
 		}
 		// Increment attempt counter.
 		attempt += 1;
 	}
 
-	// attempt counter is greater than max attempt.
+	// Attempt counter is greater than max attempt.
+	// Print loose msg and exit.
 	println!("You loose...");
 	exit(0);
 }
